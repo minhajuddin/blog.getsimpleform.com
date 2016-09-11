@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Simple Form Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.getsimpleform.com/"/>
+  <updated>2016-09-11T10:08:00.000Z</updated>
+  <id>http://blog.getsimpleform.com/</id>
+  
+  <author>
+    <name>Khaja Minhajuddin</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://blog.getsimpleform.com/2016/09/11/hello-world/"/>
+    <id>http://blog.getsimpleform.com/2016/09/11/hello-world/</id>
+    <published>2016-09-11T10:08:24.904Z</published>
+    <updated>2016-09-11T10:08:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This Hexo blog is going to be the new home for simpleform. Hopefully, I’ll blog more often :)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This Hexo blog is going to be the new home for simpleform. Hopefully, I’ll blog more often :)&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
