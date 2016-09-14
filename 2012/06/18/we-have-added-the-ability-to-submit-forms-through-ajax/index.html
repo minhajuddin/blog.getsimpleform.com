@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>We have added the ability to submit forms through ajax | Simple Form Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.
+123456789101112$.ajax(&amp;#123;  dataType: &apos;jsonp&apos;,  url: &quot;http://getsimpleform">
+<meta property="og:type" content="article">
+<meta property="og:title" content="We have added the ability to submit forms through ajax">
+<meta property="og:url" content="http://blog.getsimpleform.com/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/index.html">
+<meta property="og:site_name" content="Simple Form Blog">
+<meta property="og:description" content="You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.
+123456789101112$.ajax(&amp;#123;  dataType: &apos;jsonp&apos;,  url: &quot;http://getsimpleform">
+<meta property="og:updated_time" content="2016-09-14T10:37:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="We have added the ability to submit forms through ajax">
+<meta name="twitter:description" content="You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.
+123456789101112$.ajax(&amp;#123;  dataType: &apos;jsonp&apos;,  url: &quot;http://getsimpleform">
+  
+    <link rel="alternate" href="/atom.xml" title="Simple Form Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Simple Form Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.getsimpleform.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-we-have-added-the-ability-to-submit-forms-through-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/" class="article-date">
+  <time datetime="2012-06-18T00:00:00.000Z" itemprop="datePublished">2012-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      We have added the ability to submit forms through ajax
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">  dataType: <span class="string">'jsonp'</span>,</div><div class="line">  url: <span class="string">"http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9"</span>,</div><div class="line">  data: &#123;</div><div class="line">    name: <span class="string">"John"</span>,</div><div class="line">    message: <span class="string">"Boston"</span>,</div><div class="line">  &#125;</div><div class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//callback which can be used to show a thank you message</span></div><div class="line">  <span class="comment">//and reset the form</span></div><div class="line">  alert(<span class="string">"Thank you, for contacting us"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Note that the url here is different than the normal form url. It has an extra <code>/ajax</code> in it. For normal forms the url for action would be <code>http://getsimpleform.com/messages?form_api_token=39c8f9e5a2de15ad63469475702522b9</code> but for ajax requests it should be <code>http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.getsimpleform.com/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/" data-id="cit2rx4yu00031dleox84v9cz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/06/18/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2012/09/10/we-have-added-spam-prevention-to-simpleform/">We have added spam prevention to Simpleform!</a>
+          </li>
+        
+          <li>
+            <a href="/2012/07/20/we-have-added-file-uploads-to-simple-form/">We have added file uploads to simple form!</a>
+          </li>
+        
+          <li>
+            <a href="/2012/06/18/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/">We have added the ability to submit forms through ajax</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Khaja Minhajuddin<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
