@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>We have added file uploads to simple form! | Simple Form Blog</title>
+  <title>Access your messages programmatically as json | Simple Form Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.
-file upload
-You can checkout the demo form (with a file input) at">
+  <meta name="description" content="Access your messages programmatically as json
+You can now access the messages in simpleform as json. You just have to append a .json to the url. e.g. http://getsimpleform.com/messages.json?api_token=4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="We have added file uploads to simple form!">
-<meta property="og:url" content="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/index.html">
+<meta property="og:title" content="Access your messages programmatically as json">
+<meta property="og:url" content="http://blog.getsimpleform.com/2012/09/09/access-your-messages-programmatically-as-json/index.html">
 <meta property="og:site_name" content="Simple Form Blog">
-<meta property="og:description" content="You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.
-file upload
-You can checkout the demo form (with a file input) at">
+<meta property="og:description" content="Access your messages programmatically as json
+You can now access the messages in simpleform as json. You just have to append a .json to the url. e.g. http://getsimpleform.com/messages.json?api_token=4">
 <meta property="og:updated_time" content="2016-09-14T10:43:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="We have added file uploads to simple form!">
-<meta name="twitter:description" content="You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.
-file upload
-You can checkout the demo form (with a file input) at">
+<meta name="twitter:title" content="Access your messages programmatically as json">
+<meta name="twitter:description" content="Access your messages programmatically as json
+You can now access the messages in simpleform as json. You just have to append a .json to the url. e.g. http://getsimpleform.com/messages.json?api_token=4">
   
     <link rel="alternate" href="/atom.xml" title="Simple Form Blog" type="application/atom+xml">
   
@@ -69,10 +66,10 @@ You can checkout the demo form (with a file input) at">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-we-have-added-file-uploads-to-simple-form" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-access-your-messages-programmatically-as-json" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/07/20/we-have-added-file-uploads-to-simple-form/" class="article-date">
-  <time datetime="2012-07-20T00:00:00.000Z" itemprop="datePublished">2012-07-20</time>
+    <a href="/2012/09/09/access-your-messages-programmatically-as-json/" class="article-date">
+  <time datetime="2012-09-09T00:00:00.000Z" itemprop="datePublished">2012-09-09</time>
 </a>
     
   </div>
@@ -83,7 +80,7 @@ You can checkout the demo form (with a file input) at">
         
   
     <h1 class="article-title" itemprop="name">
-      We have added file uploads to simple form!
+      Access your messages programmatically as json
     </h1>
   
 
@@ -91,17 +88,18 @@ You can checkout the demo form (with a file input) at">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.</p>
-<p>file upload</p>
-<p>You can checkout the demo form (with a file input) at <a href="http://getsimpleform.com/demo" target="_blank" rel="external">http://getsimpleform.com/demo</a> !</p>
-<p>All you need to do to have file uploads in your form, is add an file input element and set the form’s enctype attribute to multipart/form-data like the snippet below:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">'demo-form'</span> <span class="attr">action</span>=<span class="string">"http://getsimpleform..."</span>  <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">....</div><div class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'file'</span> <span class="attr">name</span>=<span class="string">'avatar'</span> /&gt;</span></div><div class="line">....</div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Have fun!</p>
+        <p>Access your messages programmatically as json</p>
+<p>You can now access the messages in simpleform as json. You just have to append a <code>.json</code> to the url. e.g. <code>http://getsimpleform.com/messages.json?api_token=479afc5e07adc370e79cc75ad751d071</code> This way you can display your messages anywhere you want.</p>
+<p>Update:</p>
+<p>Here is some code to get the data using jsonp.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//replace the api_token with your api token!</span></div><div class="line">$.ajax(<span class="string">'http://getsimpleform.com/messages.json?api_token=2d124f03e54c6bf83ae49ab756c4d04c'</span>, &#123;</div><div class="line">  complete: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(data.responseText));</div><div class="line">  &#125;,</div><div class="line">  dataType: <span class="string">'jsonp'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>###Fair Warning!!</p>
+<p>You need to remember that if you are embedding this code on a public page, <em>Everyone can read your messages</em>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/" data-id="cit2s49xa00031epewfbgv6a3" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/09/09/access-your-messages-programmatically-as-json/" data-id="cit2s49wx00001epe9zpna1g5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -110,19 +108,19 @@ You can checkout the demo form (with a file input) at">
     
 <nav id="article-nav">
   
-    <a href="/2012/09/09/access-your-messages-programmatically-as-json/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2012/09/10/we-have-added-spam-prevention-to-simpleform/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Access your messages programmatically as json
+          We have added spam prevention to Simpleform!
         
       </div>
     </a>
   
   
-    <a href="/2012/06/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2012/07/20/we-have-added-file-uploads-to-simple-form/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">We have added file uploads to simple form!</div>
     </a>
   
 </nav>

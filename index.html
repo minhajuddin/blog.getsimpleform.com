@@ -61,6 +61,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-we-have-added-ability-to-get-messages-using-jsonp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/" class="article-date">
+  <time datetime="2014-04-25T00:00:00.000Z" itemprop="datePublished">2014-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/">We have added ability to get messages using jsonp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If you want to get all your messages (maybe to display on an internal web page) via ajax you can do the following (using jquery)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">"http://getsimpleform.com/messages.js?api_token=479afc5e07adc370e79cc75ad751d071"</span>,&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;<span class="built_in">console</span>.log(response)&#125;, <span class="string">'jsonp'</span>)</div></pre></td></tr></table></figure>
+<p>Note that the path is <code>/messages.js</code> instead of <code>/messages.json</code> also the last argument in <code>$.get</code> is <code>jsonp</code></p>
+<p>###Warning</p>
+<p>If you put this on a public page everyone can view your messages and will be able to delete them as the ‘api_token’ is a private token, so put this only on non public pages.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.getsimpleform.com/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/" data-id="cit2s49x900021epecgxvz0tm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-we-have-added-the-ability-to-submit-forms-through-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/" class="article-date">
+  <time datetime="2013-07-29T00:00:00.000Z" itemprop="datePublished">2013-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/">We have added the ability to submit forms through ajax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">  dataType: <span class="string">'jsonp'</span>,</div><div class="line">  url: <span class="string">"http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9"</span>,</div><div class="line">  data: &#123;</div><div class="line">    name: <span class="string">"John"</span>,</div><div class="line">    message: <span class="string">"Boston"</span>,</div><div class="line">  &#125;</div><div class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//callback which can be used to show a thank you message</span></div><div class="line">  <span class="comment">//and reset the form</span></div><div class="line">  alert(<span class="string">"Thank you, for contacting us"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Note that the url here is different than the normal form url. It has an extra <code>/ajax</code> in it. For normal forms the url for action would be <code>http://getsimpleform.com/messages?form_api_token=39c8f9e5a2de15ad63469475702522b9</code> but for ajax requests it should be <code>http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.getsimpleform.com/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/" data-id="cit2s49xf00051epedhld54ud" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-we-have-added-spam-prevention-to-simpleform" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2012/09/10/we-have-added-spam-prevention-to-simpleform/" class="article-date">
@@ -89,7 +169,50 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/09/10/we-have-added-spam-prevention-to-simpleform/" data-id="cit2rx4yr00021dlehlbggsr8" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/09/10/we-have-added-spam-prevention-to-simpleform/" data-id="cit2s49xc00041epe22usjl8r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-access-your-messages-programmatically-as-json" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/09/access-your-messages-programmatically-as-json/" class="article-date">
+  <time datetime="2012-09-09T00:00:00.000Z" itemprop="datePublished">2012-09-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/09/access-your-messages-programmatically-as-json/">Access your messages programmatically as json</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Access your messages programmatically as json</p>
+<p>You can now access the messages in simpleform as json. You just have to append a <code>.json</code> to the url. e.g. <code>http://getsimpleform.com/messages.json?api_token=479afc5e07adc370e79cc75ad751d071</code> This way you can display your messages anywhere you want.</p>
+<p>Update:</p>
+<p>Here is some code to get the data using jsonp.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//replace the api_token with your api token!</span></div><div class="line">$.ajax(<span class="string">'http://getsimpleform.com/messages.json?api_token=2d124f03e54c6bf83ae49ab756c4d04c'</span>, &#123;</div><div class="line">  complete: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(data.responseText));</div><div class="line">  &#125;,</div><div class="line">  dataType: <span class="string">'jsonp'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>###Fair Warning!!</p>
+<p>You need to remember that if you are embedding this code on a public page, <em>Everyone can read your messages</em>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.getsimpleform.com/2012/09/09/access-your-messages-programmatically-as-json/" data-id="cit2s49wx00001epe9zpna1g5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/" data-id="cit2rx4yn00011dle02eajast" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/" data-id="cit2s49xa00031epewfbgv6a3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -173,46 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/06/18/hello-world/" data-id="cit2rx4yf00001dleebux9yyo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-we-have-added-the-ability-to-submit-forms-through-ajax" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/" class="article-date">
-  <time datetime="2012-06-18T00:00:00.000Z" itemprop="datePublished">2012-06-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/">We have added the ability to submit forms through ajax</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">  dataType: <span class="string">'jsonp'</span>,</div><div class="line">  url: <span class="string">"http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9"</span>,</div><div class="line">  data: &#123;</div><div class="line">    name: <span class="string">"John"</span>,</div><div class="line">    message: <span class="string">"Boston"</span>,</div><div class="line">  &#125;</div><div class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//callback which can be used to show a thank you message</span></div><div class="line">  <span class="comment">//and reset the form</span></div><div class="line">  alert(<span class="string">"Thank you, for contacting us"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>Note that the url here is different than the normal form url. It has an extra <code>/ajax</code> in it. For normal forms the url for action would be <code>http://getsimpleform.com/messages?form_api_token=39c8f9e5a2de15ad63469475702522b9</code> but for ajax requests it should be <code>http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/" data-id="cit2rx4yu00031dleox84v9cz" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/06/18/hello-world/" data-id="cit2s49x600011epebzyiyumt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -239,7 +323,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
     </div>
   </div>
 
@@ -252,19 +336,23 @@
       <ul>
         
           <li>
+            <a href="/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/">We have added ability to get messages using jsonp</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/">We have added the ability to submit forms through ajax</a>
+          </li>
+        
+          <li>
             <a href="/2012/09/10/we-have-added-spam-prevention-to-simpleform/">We have added spam prevention to Simpleform!</a>
           </li>
         
           <li>
+            <a href="/2012/09/09/access-your-messages-programmatically-as-json/">Access your messages programmatically as json</a>
+          </li>
+        
+          <li>
             <a href="/2012/07/20/we-have-added-file-uploads-to-simple-form/">We have added file uploads to simple form!</a>
-          </li>
-        
-          <li>
-            <a href="/2012/06/18/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2012/06/18/we-have-added-the-ability-to-submit-forms-through-ajax/">We have added the ability to submit forms through ajax</a>
           </li>
         
       </ul>

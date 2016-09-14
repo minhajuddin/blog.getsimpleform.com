@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>We have added file uploads to simple form! | Simple Form Blog</title>
+  <title>We have added ability to get messages using jsonp | Simple Form Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.
-file upload
-You can checkout the demo form (with a file input) at">
+  <meta name="description" content="If you want to get all your messages (maybe to display on an internal web page) via ajax you can do the following (using jquery)
+1$.get(&quot;http://getsimpleform.com/messages.js?api_token=479afc5e07adc370">
 <meta property="og:type" content="article">
-<meta property="og:title" content="We have added file uploads to simple form!">
-<meta property="og:url" content="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/index.html">
+<meta property="og:title" content="We have added ability to get messages using jsonp">
+<meta property="og:url" content="http://blog.getsimpleform.com/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/index.html">
 <meta property="og:site_name" content="Simple Form Blog">
-<meta property="og:description" content="You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.
-file upload
-You can checkout the demo form (with a file input) at">
+<meta property="og:description" content="If you want to get all your messages (maybe to display on an internal web page) via ajax you can do the following (using jquery)
+1$.get(&quot;http://getsimpleform.com/messages.js?api_token=479afc5e07adc370">
 <meta property="og:updated_time" content="2016-09-14T10:43:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="We have added file uploads to simple form!">
-<meta name="twitter:description" content="You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.
-file upload
-You can checkout the demo form (with a file input) at">
+<meta name="twitter:title" content="We have added ability to get messages using jsonp">
+<meta name="twitter:description" content="If you want to get all your messages (maybe to display on an internal web page) via ajax you can do the following (using jquery)
+1$.get(&quot;http://getsimpleform.com/messages.js?api_token=479afc5e07adc370">
   
     <link rel="alternate" href="/atom.xml" title="Simple Form Blog" type="application/atom+xml">
   
@@ -69,10 +66,10 @@ You can checkout the demo form (with a file input) at">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-we-have-added-file-uploads-to-simple-form" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-we-have-added-ability-to-get-messages-using-jsonp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/07/20/we-have-added-file-uploads-to-simple-form/" class="article-date">
-  <time datetime="2012-07-20T00:00:00.000Z" itemprop="datePublished">2012-07-20</time>
+    <a href="/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/" class="article-date">
+  <time datetime="2014-04-25T00:00:00.000Z" itemprop="datePublished">2014-04-25</time>
 </a>
     
   </div>
@@ -83,7 +80,7 @@ You can checkout the demo form (with a file input) at">
         
   
     <h1 class="article-title" itemprop="name">
-      We have added file uploads to simple form!
+      We have added ability to get messages using jsonp
     </h1>
   
 
@@ -91,17 +88,16 @@ You can checkout the demo form (with a file input) at">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.</p>
-<p>file upload</p>
-<p>You can checkout the demo form (with a file input) at <a href="http://getsimpleform.com/demo" target="_blank" rel="external">http://getsimpleform.com/demo</a> !</p>
-<p>All you need to do to have file uploads in your form, is add an file input element and set the form’s enctype attribute to multipart/form-data like the snippet below:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">'demo-form'</span> <span class="attr">action</span>=<span class="string">"http://getsimpleform..."</span>  <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">....</div><div class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'file'</span> <span class="attr">name</span>=<span class="string">'avatar'</span> /&gt;</span></div><div class="line">....</div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Have fun!</p>
+        <p>If you want to get all your messages (maybe to display on an internal web page) via ajax you can do the following (using jquery)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">"http://getsimpleform.com/messages.js?api_token=479afc5e07adc370e79cc75ad751d071"</span>,&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;<span class="built_in">console</span>.log(response)&#125;, <span class="string">'jsonp'</span>)</div></pre></td></tr></table></figure>
+<p>Note that the path is <code>/messages.js</code> instead of <code>/messages.json</code> also the last argument in <code>$.get</code> is <code>jsonp</code></p>
+<p>###Warning</p>
+<p>If you put this on a public page everyone can view your messages and will be able to delete them as the ‘api_token’ is a private token, so put this only on non public pages.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/" data-id="cit2s49xa00031epewfbgv6a3" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/" data-id="cit2s49x900021epecgxvz0tm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -110,19 +106,10 @@ You can checkout the demo form (with a file input) at">
     
 <nav id="article-nav">
   
-    <a href="/2012/09/09/access-your-messages-programmatically-as-json/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Access your messages programmatically as json
-        
-      </div>
-    </a>
   
-  
-    <a href="/2012/06/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">We have added the ability to submit forms through ajax</div>
     </a>
   
 </nav>
