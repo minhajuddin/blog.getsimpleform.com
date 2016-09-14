@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.getsimpleform.com/"/>
-  <updated>2016-09-11T10:08:00.000Z</updated>
+  <updated>2016-09-14T10:31:56.000Z</updated>
   <id>http://blog.getsimpleform.com/</id>
   
   <author>
@@ -17,18 +17,22 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://blog.getsimpleform.com/2016/09/13/hello-world/"/>
-    <id>http://blog.getsimpleform.com/2016/09/13/hello-world/</id>
-    <published>2016-09-13T16:36:49.034Z</published>
-    <updated>2016-09-11T10:08:00.000Z</updated>
+    <link href="http://blog.getsimpleform.com/2012/06/18/hello-world/"/>
+    <id>http://blog.getsimpleform.com/2012/06/18/hello-world/</id>
+    <published>2012-06-18T00:00:00.000Z</published>
+    <updated>2016-09-14T10:31:56.000Z</updated>
     
-    <content type="html"><![CDATA[<p>This Hexo blog is going to be the new home for simpleform. Hopefully, I’ll blog more often :)</p>
+    <content type="html"><![CDATA[<p>Today we have launched <a href="https://getsimpleform.cmo" target="_blank" rel="external">Simple Form</a> to make online forms easier to build and style. It is very flexible, It allows you to use a form without the annoying iframes and doesn’t impose any pre-built themes on your forms.</p>
+<p>The only thing you need to change, to use simple form, is the <code>action</code> attribute on your form and use the <code>post method</code> on it.</p>
+<p>An example of the form’s usage is at <a href="http://minhajuddin.com/about/#Contact_Me" target="_blank" rel="external">http://minhajuddin.com/about/#Contact_Me</a> . You can checkout the source, it’s very simple.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://getsimpleform.com/messages?form_api_token=475339605245a246498c3b1d364a845b"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'hidden'</span> <span class="attr">name</span>=<span class="string">'redirect_to'</span> <span class="attr">value</span>=<span class="string">'http://minhajuddin.com/thank-you'</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'name'</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">id</span>=<span class="string">'name'</span> <span class="attr">name</span>=<span class="string">'name'</span> <span class="attr">placeholder</span>=<span class="string">'Your Name'</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'email'</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">id</span>=<span class="string">'email'</span> <span class="attr">name</span>=<span class="string">'email'</span> <span class="attr">placeholder</span>=<span class="string">'Your Email'</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'email'</span>&gt;</span>Message<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">'message'</span> <span class="attr">name</span>=<span class="string">'message'</span> <span class="attr">placeholder</span>=<span class="string">'Message'</span> <span class="attr">rows</span>=<span class="string">'8'</span> <span class="attr">cols</span>=<span class="string">'50'</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'submit'</span> <span class="attr">value</span>=<span class="string">'Submit'</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>As you can see, simple form integrates easily and seamlessly into your app. Hope you guys find it useful.</p>
+<h2 id="Edit"><a href="#Edit" class="headerlink" title="Edit"></a>Edit</h2><p>I should have mentioned this earlier, Simple Form sends you an email notification whenever a new form entry is made on your form (Please add bot@getsimpleform.com to your contacts so it doesn’t go to your spam folder). We’ll make the notifications more flexible in a future version :)</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;This Hexo blog is going to be the new home for simpleform. Hopefully, I’ll blog more often :)&lt;/p&gt;
-
+      &lt;p&gt;Today we have launched &lt;a href=&quot;https://getsimpleform.cmo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Simple Form&lt;/a&gt; to make online forms easier to 
     
     </summary>
     
