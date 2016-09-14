@@ -1,6 +1,6 @@
 ---
 title: We have added the ability to submit forms through ajax
-date: 2012-06-18
+date: 2013-07-29
 ---
 
 You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.
