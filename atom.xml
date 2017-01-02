@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.getsimpleform.com/"/>
-  <updated>2017-01-02T11:40:45.000Z</updated>
+  <updated>2017-01-02T11:45:31.000Z</updated>
   <id>http://blog.getsimpleform.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.getsimpleform.com/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/"/>
     <id>http://blog.getsimpleform.com/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/</id>
     <published>2014-04-25T00:00:00.000Z</published>
-    <updated>2017-01-02T11:40:45.000Z</updated>
+    <updated>2017-01-02T11:45:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>If you want to get all your messages (maybe to display on an internal web page) via ajax you can do the following (using jquery)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">"http://getsimpleform.com/messages.js?api_token=479afc5e07adc370e79cc75ad751d071"</span>,&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;<span class="built_in">console</span>.log(response)&#125;, <span class="string">'jsonp'</span>)</div></pre></td></tr></table></figure>
@@ -44,7 +44,7 @@
     <link href="http://blog.getsimpleform.com/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/"/>
     <id>http://blog.getsimpleform.com/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/</id>
     <published>2013-07-29T00:00:00.000Z</published>
-    <updated>2017-01-02T11:40:45.000Z</updated>
+    <updated>2017-01-02T11:45:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">  dataType: <span class="string">'jsonp'</span>,</div><div class="line">  url: <span class="string">"http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9"</span>,</div><div class="line">  data: &#123;</div><div class="line">    name: <span class="string">"John"</span>,</div><div class="line">    message: <span class="string">"Boston"</span>,</div><div class="line">  &#125;</div><div class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//callback which can be used to show a thank you message</span></div><div class="line">  <span class="comment">//and reset the form</span></div><div class="line">  alert(<span class="string">"Thank you, for contacting us"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -66,7 +66,7 @@
     <link href="http://blog.getsimpleform.com/2012/09/10/we-have-added-spam-prevention-to-simpleform/"/>
     <id>http://blog.getsimpleform.com/2012/09/10/we-have-added-spam-prevention-to-simpleform/</id>
     <published>2012-09-10T00:00:00.000Z</published>
-    <updated>2017-01-02T11:40:45.000Z</updated>
+    <updated>2017-01-02T11:45:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>Now you can prevent getting notified for spammy messages just by signing up for an <a href="https://akismet.com/" target="_blank" rel="external">https://akismet.com/</a> account and configuring it on simpleform. Say goodbye to Spam!</p>
 <p>If you already have a simpleform account, go to the page <code>http://getsimpleform.com/forms/&lt;your-api-key&gt;/edit</code> and enter your akismet key, and change the name attribute of your input/textarea fields to message or content. That’s it! you are all set.</p>
@@ -86,7 +86,7 @@
     <link href="http://blog.getsimpleform.com/2012/09/09/access-your-messages-programmatically-as-json/"/>
     <id>http://blog.getsimpleform.com/2012/09/09/access-your-messages-programmatically-as-json/</id>
     <published>2012-09-09T00:00:00.000Z</published>
-    <updated>2017-01-02T11:40:45.000Z</updated>
+    <updated>2017-01-02T11:45:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>Access your messages programmatically as json</p>
 <p>You can now access the messages in simpleform as json. You just have to append a <code>.json</code> to the url. e.g. <code>http://getsimpleform.com/messages.json?api_token=479afc5e07adc370e79cc75ad751d071</code> This way you can display your messages anywhere you want.</p>
@@ -112,7 +112,7 @@
     <link href="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/"/>
     <id>http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/</id>
     <published>2012-07-20T00:00:00.000Z</published>
-    <updated>2017-01-02T11:40:45.000Z</updated>
+    <updated>2017-01-02T11:45:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.</p>
 <p>file upload</p>
@@ -136,7 +136,7 @@
     <link href="http://blog.getsimpleform.com/2012/06/18/hello-world/"/>
     <id>http://blog.getsimpleform.com/2012/06/18/hello-world/</id>
     <published>2012-06-18T00:00:00.000Z</published>
-    <updated>2017-01-02T11:40:45.000Z</updated>
+    <updated>2017-01-02T11:45:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>Today we have launched <a href="https://getsimpleform.cmo" target="_blank" rel="external">Simple Form</a> to make online forms easier to build and style. It is very flexible, It allows you to use a form without the annoying iframes and doesn’t impose any pre-built themes on your forms.</p>
 <p>The only thing you need to change, to use simple form, is the <code>action</code> attribute on your form and use the <code>post method</code> on it.</p>
