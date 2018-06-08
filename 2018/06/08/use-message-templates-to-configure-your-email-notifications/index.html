@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Use message templates to configure your email notifications | Simple Form Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SimpleForm has had the ability to configure how your email notifications look for a long time now.However, it hasn’t bee properly documented. This blog post tries to remedy that :) All your forms have">
+<meta name="keywords" content="Template,Email,Notification">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Use message templates to configure your email notifications">
+<meta property="og:url" content="http://blog.getsimpleform.com/2018/06/08/use-message-templates-to-configure-your-email-notifications/index.html">
+<meta property="og:site_name" content="Simple Form Blog">
+<meta property="og:description" content="SimpleForm has had the ability to configure how your email notifications look for a long time now.However, it hasn’t bee properly documented. This blog post tries to remedy that :) All your forms have">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-06-08T11:18:13.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Use message templates to configure your email notifications">
+<meta name="twitter:description" content="SimpleForm has had the ability to configure how your email notifications look for a long time now.However, it hasn’t bee properly documented. This blog post tries to remedy that :) All your forms have">
+  
+    <link rel="alternate" href="/atom.xml" title="Simple Form Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Simple Form Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.getsimpleform.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-use-message-templates-to-configure-your-email-notifications" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/08/use-message-templates-to-configure-your-email-notifications/" class="article-date">
+  <time datetime="2018-06-08T16:23:03.000Z" itemprop="datePublished">2018-06-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Use message templates to configure your email notifications
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SimpleForm has had the ability to configure how your email notifications look for a long time now.<br>However, it hasn’t bee properly documented. This blog post tries to remedy that :)</p>
+<p>All your forms have a settings page which can be accessed by using the following url:</p>
+<p><code>https://getsimpleform.com/forms/&lt;api-token&gt;/edit</code> (The api token is different from the form_api_token, I know I should have named it better :)  )</p>
+<p>This page allows you to set up the following:</p>
+<ol>
+<li><code>akismet key</code> to use akismet for spam prevention.</li>
+<li><code>reply to</code> to change the reply to in your email notifications.</li>
+<li><code>subject template</code> to change the subject of the emails that you receive on a form submission.</li>
+<li><code>body template</code> to change the body of the email you receive on form submission.</li>
+</ol>
+<p>The subject template and the body template support a special syntax called <a href="https://shopify.github.io/liquid/basics/introduction/" target="_blank" rel="noopener">liquid markup</a>.<br>This allows you to create your email notifications in all sorts of shapes based on whatever logic you can think of.</p>
+<p>SimpleForm provides variables named the same as the names of your input fields in this markup.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>If we have a form which looks like below</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"message"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit Form"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>We can configure our body template to look like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Hello Mr. K,</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">You received a message from &#123;&#123;name&#125;&#125;: &lt;br /&gt;</span><br><span class="line">with the title: &#123;&#123;title&#125;&#125; &lt;br /&gt;</span><br><span class="line">Message:</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">&#123;&#123;message&#125;&#125;</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">&lt;p&gt;Just reply to this message to continue the conversation&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>This of course is a simple look, you have freedom to use any valid html body here.<br>Mailgun for instance has created free email templates which can be used to style your forms: <a href="https://github.com/mailgun/transactional-email-templates" target="_blank" rel="noopener">https://github.com/mailgun/transactional-email-templates</a></p>
+<p>Here is a bonus template from a friend of SimpleForm <a href="https://twitter.com/marcogargo" target="_blank" rel="noopener">@marcogargo</a>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">bgcolor</span>=<span class="string">"#eeeeee"</span> <span class="attr">cellpadding</span>=<span class="string">"10"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">style</span>=<span class="string">"max-width: 500px; font-family: arial; font-size: 13px; color: #555555;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">cellspacing</span>=<span class="string">"5"</span> <span class="attr">cellpadding</span>=<span class="string">"5"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">valign</span>=<span class="string">"baseline"</span> <span class="attr">style</span>=<span class="string">"font-size: 17px;"</span>&gt;</span></span><br><span class="line">            Hi, you have <span class="tag">&lt;<span class="name">strong</span> <span class="attr">style</span>=<span class="string">"background: #df691a; color: #fff;"</span>&gt;</span>&amp;nbsp;1&amp;nbsp;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> new message!</span><br><span class="line">          <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">valign</span>=<span class="string">"baseline"</span> <span class="attr">style</span>=<span class="string">"color: #df691a;"</span>&gt;</span></span><br><span class="line">            Simple&amp;nbsp;Form</span><br><span class="line">          <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Start: Table with the data --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">cellpadding</span>=<span class="string">"10"</span> <span class="attr">cellspacing</span>=<span class="string">"2"</span> <span class="attr">bgcolor</span>=<span class="string">"#eeeeee"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;email&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Message<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Attachments<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;&#123;file&#125;&#125;</span> /&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- End: Table with the data --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Checkout this codepen for a full view of the template: <a href="https://codepen.io/marcogargano/full/KRWgvY/" target="_blank" rel="noopener">https://codepen.io/marcogargano/full/KRWgvY/</a></p>
+<p>Hope you find this useful!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.getsimpleform.com/2018/06/08/use-message-templates-to-configure-your-email-notifications/" data-id="cji5vp2bg0000dqdj26eu59gf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/email/">Email</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notification/">Notification</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/template/">Template</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">We have added ability to get messages using jsonp</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/email/">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/notification/">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">Template</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/email/" style="font-size: 10px;">Email</a> <a href="/tags/notification/" style="font-size: 10px;">Notification</a> <a href="/tags/template/" style="font-size: 10px;">Template</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/08/use-message-templates-to-configure-your-email-notifications/">Use message templates to configure your email notifications</a>
+          </li>
+        
+          <li>
+            <a href="/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/">We have added ability to get messages using jsonp</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/">We have added the ability to submit forms through ajax</a>
+          </li>
+        
+          <li>
+            <a href="/2012/09/10/we-have-added-spam-prevention-to-simpleform/">We have added spam prevention to Simpleform!</a>
+          </li>
+        
+          <li>
+            <a href="/2012/09/09/access-your-messages-programmatically-as-json/">Access your messages programmatically as json</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Khaja Minhajuddin<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

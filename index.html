@@ -9,6 +9,7 @@
 <meta property="og:title" content="Simple Form Blog">
 <meta property="og:url" content="http://blog.getsimpleform.com/index.html">
 <meta property="og:site_name" content="Simple Form Blog">
+<meta property="og:locale" content="English">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Simple Form Blog">
   
@@ -53,13 +54,72 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.getsimpleform.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.getsimpleform.com"></form>
       </div>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-use-message-templates-to-configure-your-email-notifications" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/08/use-message-templates-to-configure-your-email-notifications/" class="article-date">
+  <time datetime="2018-06-08T16:23:03.000Z" itemprop="datePublished">2018-06-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/08/use-message-templates-to-configure-your-email-notifications/">Use message templates to configure your email notifications</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SimpleForm has had the ability to configure how your email notifications look for a long time now.<br>However, it hasn’t bee properly documented. This blog post tries to remedy that :)</p>
+<p>All your forms have a settings page which can be accessed by using the following url:</p>
+<p><code>https://getsimpleform.com/forms/&lt;api-token&gt;/edit</code> (The api token is different from the form_api_token, I know I should have named it better :)  )</p>
+<p>This page allows you to set up the following:</p>
+<ol>
+<li><code>akismet key</code> to use akismet for spam prevention.</li>
+<li><code>reply to</code> to change the reply to in your email notifications.</li>
+<li><code>subject template</code> to change the subject of the emails that you receive on a form submission.</li>
+<li><code>body template</code> to change the body of the email you receive on form submission.</li>
+</ol>
+<p>The subject template and the body template support a special syntax called <a href="https://shopify.github.io/liquid/basics/introduction/" target="_blank" rel="noopener">liquid markup</a>.<br>This allows you to create your email notifications in all sorts of shapes based on whatever logic you can think of.</p>
+<p>SimpleForm provides variables named the same as the names of your input fields in this markup.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>If we have a form which looks like below</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"message"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit Form"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>We can configure our body template to look like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Hello Mr. K,</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">You received a message from &#123;&#123;name&#125;&#125;: &lt;br /&gt;</span><br><span class="line">with the title: &#123;&#123;title&#125;&#125; &lt;br /&gt;</span><br><span class="line">Message:</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">&#123;&#123;message&#125;&#125;</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">&lt;p&gt;Just reply to this message to continue the conversation&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>This of course is a simple look, you have freedom to use any valid html body here.<br>Mailgun for instance has created free email templates which can be used to style your forms: <a href="https://github.com/mailgun/transactional-email-templates" target="_blank" rel="noopener">https://github.com/mailgun/transactional-email-templates</a></p>
+<p>Here is a bonus template from a friend of SimpleForm <a href="https://twitter.com/marcogargo" target="_blank" rel="noopener">@marcogargo</a>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">bgcolor</span>=<span class="string">"#eeeeee"</span> <span class="attr">cellpadding</span>=<span class="string">"10"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">style</span>=<span class="string">"max-width: 500px; font-family: arial; font-size: 13px; color: #555555;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">cellspacing</span>=<span class="string">"5"</span> <span class="attr">cellpadding</span>=<span class="string">"5"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">valign</span>=<span class="string">"baseline"</span> <span class="attr">style</span>=<span class="string">"font-size: 17px;"</span>&gt;</span></span><br><span class="line">            Hi, you have <span class="tag">&lt;<span class="name">strong</span> <span class="attr">style</span>=<span class="string">"background: #df691a; color: #fff;"</span>&gt;</span>&amp;nbsp;1&amp;nbsp;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> new message!</span><br><span class="line">          <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">valign</span>=<span class="string">"baseline"</span> <span class="attr">style</span>=<span class="string">"color: #df691a;"</span>&gt;</span></span><br><span class="line">            Simple&amp;nbsp;Form</span><br><span class="line">          <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Start: Table with the data --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span> <span class="attr">cellpadding</span>=<span class="string">"10"</span> <span class="attr">cellspacing</span>=<span class="string">"2"</span> <span class="attr">bgcolor</span>=<span class="string">"#eeeeee"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;email&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Message<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">bgcolor</span>=<span class="string">"#ffffff"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>Attachments<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;&#123;file&#125;&#125;</span> /&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- End: Table with the data --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Checkout this codepen for a full view of the template: <a href="https://codepen.io/marcogargano/full/KRWgvY/" target="_blank" rel="noopener">https://codepen.io/marcogargano/full/KRWgvY/</a></p>
+<p>Hope you find this useful!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.getsimpleform.com/2018/06/08/use-message-templates-to-configure-your-email-notifications/" data-id="cji5vp2bg0000dqdj26eu59gf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/email/">Email</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notification/">Notification</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/template/">Template</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-we-have-added-ability-to-get-messages-using-jsonp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -84,7 +144,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>If you want to get all your messages (maybe to display on an internal web page) via ajax you can do the following (using jquery)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">"http://getsimpleform.com/messages.js?api_token=479afc5e07adc370e79cc75ad751d071"</span>,&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;<span class="built_in">console</span>.log(response)&#125;, <span class="string">'jsonp'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.get(<span class="string">"http://getsimpleform.com/messages.js?api_token=479afc5e07adc370e79cc75ad751d071"</span>,&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;<span class="built_in">console</span>.log(response)&#125;, <span class="string">'jsonp'</span>)</span><br></pre></td></tr></table></figure>
 <p>Note that the path is <code>/messages.js</code> instead of <code>/messages.json</code> also the last argument in <code>$.get</code> is <code>jsonp</code></p>
 <p>###Warning</p>
 <p>If you put this on a public page everyone can view your messages and will be able to delete them as the ‘api_token’ is a private token, so put this only on non public pages.</p>
@@ -92,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/" data-id="cixg0s90b00021dua173ooc8n" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/" data-id="cji5vp2c40009dqdj7ypefsu9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -125,13 +185,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>You can now submit form through ajax in a simple way. Below is an example using jquery which submits data to our demo form.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">  dataType: <span class="string">'jsonp'</span>,</div><div class="line">  url: <span class="string">"http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9"</span>,</div><div class="line">  data: &#123;</div><div class="line">    name: <span class="string">"John"</span>,</div><div class="line">    message: <span class="string">"Boston"</span>,</div><div class="line">  &#125;</div><div class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//callback which can be used to show a thank you message</span></div><div class="line">  <span class="comment">//and reset the form</span></div><div class="line">  alert(<span class="string">"Thank you, for contacting us"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  dataType: <span class="string">'jsonp'</span>,</span><br><span class="line">  url: <span class="string">"http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9"</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    name: <span class="string">"John"</span>,</span><br><span class="line">    message: <span class="string">"Boston"</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//callback which can be used to show a thank you message</span></span><br><span class="line">  <span class="comment">//and reset the form</span></span><br><span class="line">  alert(<span class="string">"Thank you, for contacting us"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Note that the url here is different than the normal form url. It has an extra <code>/ajax</code> in it. For normal forms the url for action would be <code>http://getsimpleform.com/messages?form_api_token=39c8f9e5a2de15ad63469475702522b9</code> but for ajax requests it should be <code>http://getsimpleform.com/messages/ajax?form_api_token=39c8f9e5a2de15ad63469475702522b9</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/" data-id="cixg0s90p00051duarf6aa8uu" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2013/07/29/we-have-added-the-ability-to-submit-forms-through-ajax/" data-id="cji5vp2c8000bdqdj7jgs4e7j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,13 +223,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Now you can prevent getting notified for spammy messages just by signing up for an <a href="https://akismet.com/" target="_blank" rel="external">https://akismet.com/</a> account and configuring it on simpleform. Say goodbye to Spam!</p>
+        <p>Now you can prevent getting notified for spammy messages just by signing up for an <a href="https://akismet.com/" target="_blank" rel="noopener">https://akismet.com/</a> account and configuring it on simpleform. Say goodbye to Spam!</p>
 <p>If you already have a simpleform account, go to the page <code>http://getsimpleform.com/forms/&lt;your-api-key&gt;/edit</code> and enter your akismet key, and change the name attribute of your input/textarea fields to message or content. That’s it! you are all set.</p>
 <h2 id="Update-The-url-to-edit-your-akismet-key-has-changed-to-http-getsimpleform-com-forms-your-api-key-edit"><a href="#Update-The-url-to-edit-your-akismet-key-has-changed-to-http-getsimpleform-com-forms-your-api-key-edit" class="headerlink" title="Update: The url to edit your akismet key has changed to http://getsimpleform.com/forms/your-api-key/edit"></a>Update: The url to edit your akismet key has changed to <code>http://getsimpleform.com/forms/your-api-key/edit</code></h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/09/10/we-have-added-spam-prevention-to-simpleform/" data-id="cixg0s90j00041dualc08xzb0" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/09/10/we-have-added-spam-prevention-to-simpleform/" data-id="cji5vp2c9000cdqdjp5qjkn3g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,14 +265,14 @@
 <p>You can now access the messages in simpleform as json. You just have to append a <code>.json</code> to the url. e.g. <code>http://getsimpleform.com/messages.json?api_token=479afc5e07adc370e79cc75ad751d071</code> This way you can display your messages anywhere you want.</p>
 <p>Update:</p>
 <p>Here is some code to get the data using jsonp.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//replace the api_token with your api token!</span></div><div class="line">$.ajax(<span class="string">'http://getsimpleform.com/messages.json?api_token=2d124f03e54c6bf83ae49ab756c4d04c'</span>, &#123;</div><div class="line">  complete: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(data.responseText));</div><div class="line">  &#125;,</div><div class="line">  dataType: <span class="string">'jsonp'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//replace the api_token with your api token!</span></span><br><span class="line">$.ajax(<span class="string">'http://getsimpleform.com/messages.json?api_token=2d124f03e54c6bf83ae49ab756c4d04c'</span>, &#123;</span><br><span class="line">  complete: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(data.responseText));</span><br><span class="line">  &#125;,</span><br><span class="line">  dataType: <span class="string">'jsonp'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>###Fair Warning!!</p>
 <p>You need to remember that if you are embedding this code on a public page, <em>Everyone can read your messages</em>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/09/09/access-your-messages-programmatically-as-json/" data-id="cixg0s8zo00001duavqh8frpg" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/09/09/access-your-messages-programmatically-as-json/" data-id="cji5vp2bk0001dqdj81l0nwwt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,15 +306,15 @@
       
         <p>You can now use Simpleform to create forms capable of accepting files as inputs. This makes it capable of creating all kinds of forms.</p>
 <p>file upload</p>
-<p>You can checkout the demo form (with a file input) at <a href="http://getsimpleform.com/demo" target="_blank" rel="external">http://getsimpleform.com/demo</a> !</p>
+<p>You can checkout the demo form (with a file input) at <a href="http://getsimpleform.com/demo" target="_blank" rel="noopener">http://getsimpleform.com/demo</a> !</p>
 <p>All you need to do to have file uploads in your form, is add an file input element and set the form’s enctype attribute to multipart/form-data like the snippet below:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">'demo-form'</span> <span class="attr">action</span>=<span class="string">"http://getsimpleform..."</span>  <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">....</div><div class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'file'</span> <span class="attr">name</span>=<span class="string">'avatar'</span> /&gt;</span></div><div class="line">....</div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">'demo-form'</span> <span class="attr">action</span>=<span class="string">"http://getsimpleform..."</span>  <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">....</span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'file'</span> <span class="attr">name</span>=<span class="string">'avatar'</span> /&gt;</span></span><br><span class="line">....</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Have fun!</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/" data-id="cixg0s90f00031duakem3t5bk" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/07/20/we-have-added-file-uploads-to-simple-form/" data-id="cji5vp2c6000adqdj8pgvixx8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,17 +346,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Today we have launched <a href="https://getsimpleform.cmo" target="_blank" rel="external">Simple Form</a> to make online forms easier to build and style. It is very flexible, It allows you to use a form without the annoying iframes and doesn’t impose any pre-built themes on your forms.</p>
+        <p>Today we have launched <a href="https://getsimpleform.cmo" target="_blank" rel="noopener">Simple Form</a> to make online forms easier to build and style. It is very flexible, It allows you to use a form without the annoying iframes and doesn’t impose any pre-built themes on your forms.</p>
 <p>The only thing you need to change, to use simple form, is the <code>action</code> attribute on your form and use the <code>post method</code> on it.</p>
-<p>An example of the form’s usage is at <a href="http://minhajuddin.com/about/#Contact_Me" target="_blank" rel="external">http://minhajuddin.com/about/#Contact_Me</a> . You can checkout the source, it’s very simple.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://getsimpleform.com/messages?form_api_token=475339605245a246498c3b1d364a845b"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'hidden'</span> <span class="attr">name</span>=<span class="string">'redirect_to'</span> <span class="attr">value</span>=<span class="string">'http://minhajuddin.com/thank-you'</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'name'</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">id</span>=<span class="string">'name'</span> <span class="attr">name</span>=<span class="string">'name'</span> <span class="attr">placeholder</span>=<span class="string">'Your Name'</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'email'</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">id</span>=<span class="string">'email'</span> <span class="attr">name</span>=<span class="string">'email'</span> <span class="attr">placeholder</span>=<span class="string">'Your Email'</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'email'</span>&gt;</span>Message<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">'message'</span> <span class="attr">name</span>=<span class="string">'message'</span> <span class="attr">placeholder</span>=<span class="string">'Message'</span> <span class="attr">rows</span>=<span class="string">'8'</span> <span class="attr">cols</span>=<span class="string">'50'</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'submit'</span> <span class="attr">value</span>=<span class="string">'Submit'</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>An example of the form’s usage is at <a href="http://minhajuddin.com/about/#Contact_Me" target="_blank" rel="noopener">http://minhajuddin.com/about/#Contact_Me</a> . You can checkout the source, it’s very simple.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://getsimpleform.com/messages?form_api_token=475339605245a246498c3b1d364a845b"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'hidden'</span> <span class="attr">name</span>=<span class="string">'redirect_to'</span> <span class="attr">value</span>=<span class="string">'http://minhajuddin.com/thank-you'</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'name'</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">id</span>=<span class="string">'name'</span> <span class="attr">name</span>=<span class="string">'name'</span> <span class="attr">placeholder</span>=<span class="string">'Your Name'</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'email'</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">id</span>=<span class="string">'email'</span> <span class="attr">name</span>=<span class="string">'email'</span> <span class="attr">placeholder</span>=<span class="string">'Your Email'</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'email'</span>&gt;</span>Message<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">'message'</span> <span class="attr">name</span>=<span class="string">'message'</span> <span class="attr">placeholder</span>=<span class="string">'Message'</span> <span class="attr">rows</span>=<span class="string">'8'</span> <span class="attr">cols</span>=<span class="string">'50'</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'submit'</span> <span class="attr">value</span>=<span class="string">'Submit'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>As you can see, simple form integrates easily and seamlessly into your app. Hope you guys find it useful.</p>
-<h2 id="Edit"><a href="#Edit" class="headerlink" title="Edit"></a>Edit</h2><p>I should have mentioned this earlier, Simple Form sends you an email notification whenever a new form entry is made on your form (Please add bot@getsimpleform.com to your contacts so it doesn’t go to your spam folder). We’ll make the notifications more flexible in a future version :)</p>
+<h2 id="Edit"><a href="#Edit" class="headerlink" title="Edit"></a>Edit</h2><p>I should have mentioned this earlier, Simple Form sends you an email notification whenever a new form entry is made on your form (Please add <a href="mailto:bot@getsimpleform.com" target="_blank" rel="noopener">bot@getsimpleform.com</a> to your contacts so it doesn’t go to your spam folder). We’ll make the notifications more flexible in a future version :)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.getsimpleform.com/2012/06/18/hello-world/" data-id="cixg0s90400011duakbz0l8mn" class="article-share-link">Share</a>
+      <a data-url="http://blog.getsimpleform.com/2012/06/18/hello-world/" data-id="cji5vp2c20008dqdj5wmg0e9z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,15 +375,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/email/">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/notification/">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">Template</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/email/" style="font-size: 10px;">Email</a> <a href="/tags/notification/" style="font-size: 10px;">Notification</a> <a href="/tags/template/" style="font-size: 10px;">Template</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
     </div>
   </div>
 
@@ -334,6 +408,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/08/use-message-templates-to-configure-your-email-notifications/">Use message templates to configure your email notifications</a>
+          </li>
         
           <li>
             <a href="/2014/04/25/we-have-added-ability-to-get-messages-using-jsonp/">We have added ability to get messages using jsonp</a>
@@ -351,10 +429,6 @@
             <a href="/2012/09/09/access-your-messages-programmatically-as-json/">Access your messages programmatically as json</a>
           </li>
         
-          <li>
-            <a href="/2012/07/20/we-have-added-file-uploads-to-simple-form/">We have added file uploads to simple form!</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -367,7 +441,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Khaja Minhajuddin<br>
+      &copy; 2018 Khaja Minhajuddin<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
